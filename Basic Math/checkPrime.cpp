@@ -1,5 +1,5 @@
 class Solution {
-public :
+public:
   bool checkPrime(int n){ 
       int cnt = 0;
       for(int i = 1; i <= sqrt(n); i++){ 
@@ -18,4 +18,4 @@ public :
           return false; 
       }
   }
-}
+};
