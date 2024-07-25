@@ -5,6 +5,9 @@ A reverse pair is a pair (i, j) where:
 0 <= i < j < nums.length and
 nums[i] > 2 * nums[j].'''
 
+from typing import List
+
+
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
         def merge_sort(start: int, end: int) -> int:
