@@ -27,3 +27,29 @@ class Solution:
                 else :
                     low = mid+1
         return -1
+
+
+'''Other solution'''
+
+def rsearch(nums, target, low, high) :
+    mid = (low+high)//2
+    if (low > high) :
+        return -1
+    elif nums[mid] == target :
+        return mid
+    elif nums[mid] >= nums[low]:
+        if (nums[low] <= target and nums[mid] > target) :
+            return rsearch(nums, target, low, mid-1)
+        else :
+            return rsearch(nums, target, mid+1, high)
+    elif (nums[mid] < nums[high]) :
+        if (nums[high] >= target and nums[mid] < target) :
+            return rsearch(nums, target, mid+1, high)
+    return rsearch(nums, target, low, mid-1)
+
+
+class Solution(object):
+    def search(self, nums, target):
+        left, right = 0, len(nums)-1
+        ans = rsearch(nums, target, left, right)
+        return ans
