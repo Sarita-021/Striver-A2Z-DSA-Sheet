@@ -4,6 +4,9 @@ Input: S = "aba", K = 2
 Output:3
 Explanation:The substrings are: "ab", "ba" and "aba".'''
 
+
+# Sliding Window Approach
+
 def atmost(s, k):
     l = 0
     cnt = 0
