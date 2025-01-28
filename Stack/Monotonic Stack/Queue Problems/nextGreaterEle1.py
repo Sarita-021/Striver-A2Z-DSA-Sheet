@@ -12,21 +12,18 @@ from typing import List
 
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        s = [nums2[-1]]
-        res = {nums2[-1]:-1}
+        s = []
+        res = {}
         
-        for i in range(len(nums2)-2, -1, -1):
-            if nums2[i] < s[-1] :
+        for i in range(len(nums2)-1, -1, -1):
+            while s and nums2[i] > s[-1]:
+                s.pop()
+            if not s:
+                res[nums2[i]] = -1
+            else :
                 res[nums2[i]] = s[-1]
-            else:
-                while s and nums2[i] > s[-1]:
-                    s.pop()
-                if not s:
-                    res[nums2[i]] = -1
-                else :
-                    res[nums2[i]] = s[-1]
             s.append(nums2[i])
-            
+            print(s)
         ans = []
         for i in nums1:
             ans.append(res[i])
