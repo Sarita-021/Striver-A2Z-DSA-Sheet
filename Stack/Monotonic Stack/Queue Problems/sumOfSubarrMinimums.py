@@ -5,6 +5,26 @@
 from typing import List
 
 
+
+class Solution:
+    def sumSubarrayMins(self, arr: List[int]) -> int:
+        res = 0
+        inf = float('inf')
+        A = [-inf] + arr + [-inf]
+        s = []
+        MOD = 10**9+7
+        for i, x in enumerate(A):
+            while s and A[s[-1]] > x:
+                j = s.pop()
+                k = s[-1]
+                res = (res + (A[j] * (i - j) * (j - k)) % MOD) % MOD
+            s.append(i)
+        return res
+    
+
+# Another approach
+
+
 def prevSmallerEqual(A):
     s = []
     res = []
