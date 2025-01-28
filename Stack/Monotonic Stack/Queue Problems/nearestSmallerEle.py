@@ -25,19 +25,16 @@ from typing import List
 
 class Solution:
     def prevSmaller(self, A: List[int]) -> List[int]:
-        s = [A[0]]
+        s = []
         res = []
         
         for i in range(len(A)):
-            if A[i] > s[-1] :
+            while s and A[i] <= A[s[-1]]:
+                s.pop()
+            if not s:
+                res.append(-1)
+            else :
                 res.append(s[-1])
-            else:
-                while s and A[i] <= s[-1]:
-                    s.pop()
-                if not s:
-                    res.append(-1)
-                else :
-                    res.append(s[-1])
-            s.append(A[i])
+            s.append(i)
 
         return res
