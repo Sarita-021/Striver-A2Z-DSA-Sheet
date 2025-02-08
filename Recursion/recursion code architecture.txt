@@ -1,0 +1,22 @@
+def backtrack(state, choices):
+    # 1️⃣ Base Case: Stop when a valid solution or constraint is met
+    if isValid(state):
+        saveSolution(state)
+        return
+
+    # 2️⃣ Loop Through Choices (Breadth Control)
+    for choice in choices:
+        if isValidChoice(choice, state):  
+            # 3️⃣ Modify State: Move to Next Level (Depth Control)
+            makeChoice(state, choice)  
+
+            # 4️⃣ Recursive Call: Explore Further
+            backtrack(state, getNextChoices(choices, choice))  
+
+            # 5️⃣ Undo Choice (Backtracking Step)
+            undoChoice(state, choice)
+
+🔹 Summary
+For Loop Controls Breadth (choices at each level).
+Recursive Calls Control Depth (number of numbers chosen).
+Pruning Optimizes Performance (stops unnecessary calls).
