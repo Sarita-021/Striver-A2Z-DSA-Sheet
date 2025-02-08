@@ -3,6 +3,9 @@ operators '+', '-', and/or '*' between the digits of num so that the resultant e
 Note that operands in the returned expressions should not contain leading zeros.
 https://leetcode.com/problems/expression-add-operators/description/'''
 
+from typing import List
+
+
 class Solution:
     def addOperators(self, s: str, target: int) -> List[str]:
         res = []
